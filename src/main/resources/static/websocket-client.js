@@ -25,5 +25,8 @@ function showMessage(message) {
     var messageDiv = document.getElementById('messages');
     messageDiv.innerHTML += '<p>' + message.content + '</p>';
 }
+function getLogs() {
+    stompClient.send("/app/logs", {}, JSON.stringify({ command: "logs" }));
+}
 
 connect();
